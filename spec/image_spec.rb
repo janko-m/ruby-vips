@@ -40,7 +40,7 @@ RSpec.describe Vips::Image do
         it 'can load an image from a buffer' do
             image = Vips::Image.black(16, 16) + 128
             buffer = image.write_to_buffer ".jpg"
-            x = Vips::Image.new_from_buffer buffer, ""
+            x = Vips::Image.new_from_buffer buffer
             expect(x.width).to eq(16)
             expect(x.height).to eq(16)
         end

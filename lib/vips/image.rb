@@ -252,13 +252,13 @@ module Vips
         # strings or appended as a hash. For example:
         #
         # ```
-        # image = Vips::new_from_from_buffer memory_buffer, "shrink=2"
+        # image = Vips::Image.new_from_buffer memory_buffer, "shrink=2"
         # ```
         # 
         # or alternatively:
         #
         # ```
-        # image = Vips::new_from_from_buffer memory_buffer, "", shrink: 2
+        # image = Vips::Image.new_from_buffer memory_buffer, shrink: 2
         # ```
         #
         # The options available depend on the file format. Try something like:
@@ -278,7 +278,7 @@ module Vips
         # @param option_string [String] load options as a string
         # @macro vips.loadopts
         # @return [Image] the loaded image
-        def self.new_from_buffer data, option_string, opts = {}
+        def self.new_from_buffer data, option_string = "", opts = {}
             loader = Vips::vips_foreign_find_load_buffer data, data.length
             raise Vips::Error if loader == nil
 
